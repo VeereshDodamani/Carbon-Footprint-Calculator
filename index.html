@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Carbon Footprint Calculator</h1>
+        <form method="POST">
+            <label for="energy_consumption">Energy Consumption (kWh):</label>
+            <input type="number" name="energy_consumption" required>
+
+            <label for="transportation">Transportation (km per week):</label>
+            <input type="number" name="transportation" required>
+
+            <label for="waste_generated">Waste Generated (kg per week):</label>
+            <input type="number" name="waste_generated" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if footprint is not none %}
+        <h2>Your Carbon Footprint: {{ footprint }} kg CO2</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
